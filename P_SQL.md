@@ -72,3 +72,5 @@ BEGIN
     RETURN resultado;
 END
 ```
+
+# If Else
