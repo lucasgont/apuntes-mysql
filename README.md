@@ -450,7 +450,7 @@ INNER JOIN Proyectos p ON e.email = p.empleado_email
 | Tipo de Subconsulta | Descripción | Ejemplo |
 |------|------------|---------------|
 | **Devuelve un único dato** | Se usa para obtener un valor único (como un número o una fecha) y usarlo en otra consulta. | ```SELECT nombre FROM Empleados WHERE salario = (SELECT max(salario) FROM Empleados); ``` |
-| **Devuelve una única columna** | Se usa con `IN` para filtrar resultados basados en una lista obtenida de otra consulta. | ```SELECT nombre FROM Juegos j WHERE j.plataforma IN ('PS4', 'Nintendo');``` |
+| **Devuelve una única columna** | Se usa con `IN` para filtrar resultados basados en una lista obtenida de otra consulta. | ```SELECT nombre FROM Empleados WHERE departamento_id IN (SELECT id FROM Departamentos WHERE nombre = 'Ventas');``` |
 | **Devuelve una tabla** | Se usa dentro de un `JOIN` para combinar datos de una consulta con otra tabla. | Mirar abajo |
 
 <br>
@@ -495,8 +495,6 @@ WHERE s.valoracion == 1
 
 PL significa Procedural Language (Lenguaje de Programación Procedimental). En el contexto de bases de datos, este término se utiliza para describir lenguajes de programación que se pueden usar para escribir funciones y procedimientos que se ejecutan en el servidor de bases de datos.
 
-<!-- aquii -->
-
 ## Crear una función
 
 ```sql
@@ -504,10 +502,11 @@ DELIMITER $$
 CREATE FUNCTION suma(a int, b int)
 RETURNS int
 BEGIN
+	-- Cuerpo de la función
 	RETURN (a+b);
 END 
 $$
-DELIMITER ;
+DELIMITER;
 ```
 
 <br>
@@ -515,8 +514,10 @@ DELIMITER ;
 ## Usar función
 
 ```sql
-SELECT suma(2,4);
+SELECT suma(2, 4);
 ```
+
+<br>
 
 ## Variables
 
@@ -531,34 +532,36 @@ BEGIN
 	RETURN resultado;
 END 
 $$
-DELIMITER ;
+DELIMITER;
 ```
 
-## Uso de Consultas dentro de funciones
+<br>
 
-* Declarar variable con el resultado de la consulta
+## Uso de consultas dentro de funciones
+
+Asignar valor de la variable con el resultado de una consulta:
 
 ```sql
 BEGIN
 	DECLARE resultado int;
 
 	SET resultado = (
-        SELECT COUNT(*) FROM results r
+        SELECT COUNT(*) FROM Results r
         WHERE r.Resultado = equipo
-        ;
     );
     
 	RETURN resultado;
 END 
 ```
+<br>
 
-* Declarar valor de la variable dentro de la consulta (con INTO)
+Asignar valor de la variable dentro de una consulta (con `INTO`):
 
 ```sql
 BEGIN
     DECLARE resultado int;
 
-	SELECT COUNT(*) INTO resultado FROM results r
+	SELECT count(*) INTO resultado FROM Results r
 	WHERE r.Resultado = equipo
 	;
 	
@@ -567,3 +570,26 @@ END
 ```
 
 ## If Else
+
+```sql
+BEGIN
+    DECLARE resultado varchar(255);
+
+	IF (horasOcupadas = 0) THEN
+		SET resultado = 'Disponible';
+	ELSE
+		SET resultado = 'Ocupado';
+	END IF;
+END
+```
+
+<br>
+
+## Procedimientos
+
+Los procedimientos almacenados son similares a las funciones, pero pueden realizar operaciones más complejas, incluidas las operaciones de manipulación de datos (INSERT, UPDATE, DELETE).
+
+```sql
+-- Cuerpo del procedimiento
+
+```
