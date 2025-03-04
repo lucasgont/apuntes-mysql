@@ -1,5 +1,8 @@
 <img src="./images/mysql.png" alt="MySQL" style="width: 300px; display: block; margin: auto;">
 
+<br>
+<br>
+
 # MySQL
 
 - Creado: 2024-11-19
