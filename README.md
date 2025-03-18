@@ -5,9 +5,6 @@
 
 # MySQL
 
-- Creado: 2024-11-19
-- Última edición: 2025-02-26
-
 ### Índice
 
 INTRODUCCIÓN
