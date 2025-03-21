@@ -593,3 +593,10 @@ Los procedimientos almacenados son similares a las funciones, pero pueden realiz
 -- Cuerpo del procedimiento
 
 ```
+
+
+<br>
+
+## Rand
+
+floor rand
