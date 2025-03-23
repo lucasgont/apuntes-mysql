@@ -600,3 +600,36 @@ Los procedimientos almacenados son similares a las funciones, pero pueden realiz
 ## Rand
 
 floor rand
+
+https://chatgpt.com/c/67dd404b-00ec-800f-939d-680c839aa947
+
+-- Diferencia den dias
+DATEDIFF()-> trabajar con diferencia de fechas
+
+SET dias_restantes = DATEDIFF(ultimo_dia, fecha);
+
+----------------
+
+
+sql
+
+day()
+dayofweek()
+
+rand()
+
+--------
+
+comparar con apuntes de lolo
+
+	https://drive.google.com/file/d/1mXAlLTBl0wvFLLbDKL9cmBWDJ46FP_mI/view
+
+	https://drive.google.com/file/d/18fkc4A5TlKCjtKyRr01AAjRzPq6bWsNs/view
+
+preguntar gpt si hay algun error
+
+añadir el orden de todos las cosas SELECT FROM, WHERE, ORDER, GROUP BY, HAVING... (creo que lolo subio una foto)
+
+se puede Agrupar (GROUP BY) además de un valor separando los atributos por coma
+
+añadir todo al indice con tabulaciones
